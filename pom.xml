@@ -14,7 +14,7 @@
     <name>job4_bank</name>
     <description>Exception handling examples</description>
     <properties>
-        <java.version>14</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,13 +26,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>6.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.job4j.bank.model.User;
 import ru.job4j.bank.service.BankService;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,8 +33,11 @@ public class UserController {
     public User save(@RequestBody Map<String, String> body) {
         var username = body.get("username");
         var password = body.get("password");
+        if (username == null || password == null) {
+            throw new NullPointerException("Username and password mustn't be empty");
+        }
         if (password.length() < 6) {
-            throw new IllegalArgumentException("Invalid password. Password length must be more than 5 characters.");
+            throw new IllegalArgumentException("Invalid username or password");
         }
         var user = new User(username, password);
         bankService.addUser(user);
